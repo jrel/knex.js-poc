@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  pg:
+    image: bitnami/postgresql
+    environment:
+      POSTGRESQL_USERNAME: "${POSTGRES_USERNAME}"
+      POSTGRESQL_PASSWORD: "${POSTGRES_PASSWORD}"
+      POSTGRESQL_DATABASE: "${POSTGRES_DATABASE}"
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    networks:
+      - default
+networks:
+  default:
+    driver: bridge
